@@ -11,7 +11,18 @@
 <body>
 
   <div class="container">
-    <h1>Student Grade Table</h1>
+    <header>
+      <div class="row">
+    <div class="col-md-6">
+      <h1>Student Grade Table</h1>
+    </div>
+    <div class="col-8 col-md-6">
+      <h2>Average Grade:
+        <span class="badge badge-secondary" id="gradeAverage">N/A</span>
+      </h2>
+    </div>
+  </div>
+    </header>
 
   <table class="table table-striped ">
     <thead class="thead-dark">
@@ -28,6 +39,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   <script src="./components/app.js"></script>
   <script src="./components/grade-table.js"></script>
+  <script src="./components/page-header.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>

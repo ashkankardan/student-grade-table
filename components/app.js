@@ -1,12 +1,12 @@
 class App {
-  constructor(gradeTable) {
+  constructor(gradeTable, pageHeader) {
     this.gradeTable = gradeTable;
+    this.pageHeader = pageHeader;
     this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
     this.handleGetGradesError = this.handleGetGradesError.bind(this);
   }
 
   handleGetGradesSuccess(grades) {
-    // console.log(this.gradeTable.updateGrades())
     this.gradeTable.updateGrades(grades);
   }
 
