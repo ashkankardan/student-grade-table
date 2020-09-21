@@ -3,6 +3,6 @@ class PageHeader {
     this.headerElement = headerElement;
   }
   updateAverage(newAverage) {
-    gradeAverage.textContent = newAverage;
+    this.headerElement.textContent = newAverage;
   }
 }
