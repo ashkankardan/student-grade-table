@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Grade Table</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -24,22 +25,56 @@
   </div>
     </header>
 
-  <table class="table table-striped ">
-    <thead class="thead-dark">
-        <th scope="col">Student Name</th>
-        <th scope="col">Course</th>
-        <th scope="col">Grade</th>
-    </thead>
-    <tbody class="">
+    <main class="row">
 
-    </tbody>
-  </table>
+      <div class="col-md-8">
+        <table class="table table-striped ">
+          <thead class="thead-dark">
+              <th scope="col">Student Name</th>
+              <th scope="col">Course</th>
+              <th scope="col">Grade</th>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-8 col-md-4">
+        <form>
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user fa-lg"></i></span>
+            </div>
+            <input name="name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="addon-wrapping">
+          </div>
+
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-newspaper fa-lg"></i></span>
+            </div>
+            <input name="course" type="text" class="form-control" placeholder="Course" aria-label="Course" aria-describedby="addon-wrapping">
+          </div>
+
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-graduation-cap fa-lg"></i></span>
+            </div>
+            <input name="grade" type="text" class="form-control" placeholder="Grade" aria-label="Grade" aria-describedby="addon-wrapping">
+          </div>
+          <button type="submit" class="btn btn-info">Add</button>
+          <button type="reset" class="btn btn-secondary">Cancel</button>
+
+        </form>
+      </div>
+
+    </main>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   <script src="./components/app.js"></script>
   <script src="./components/grade-table.js"></script>
   <script src="./components/page-header.js"></script>
+  <script src="./components/grade-form.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>
