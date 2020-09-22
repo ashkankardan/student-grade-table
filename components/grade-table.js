@@ -13,7 +13,7 @@ class GradeTable {
     }
 
     for (var i = 0; i < grades.length; i++) {
-      this.renderGradeRow(grades[i], this.deleteGrade);
+      this.renderGradeRow(grades[i], this.deleteGrade, this.updateGrade);
 
     }
   }
@@ -22,7 +22,11 @@ class GradeTable {
     this.deleteGrade = deleteGrade;
   }
 
-  renderGradeRow(data, deleteGrade) {
+  onUpdateClick(updateGrade) {
+    this.updateGrade = updateGrade;
+  }
+
+  renderGradeRow(data, deleteGrade, updateGrade) {
     var tRow = document.createElement("tr");
     var name = document.createElement("td");
     name.textContent = data.name;
@@ -31,13 +35,46 @@ class GradeTable {
     var grade = document.createElement("td");
     grade.textContent = data.grade;
     var deleteTd = document.createElement("td");
-    var deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "DELETE";
-    deleteBtn.className = "btn btn-danger btn-sm";
-    deleteTd.append(deleteBtn);
+
+
+    var deleteBtn = document.createElement("i");
+    deleteBtn.className = "fas fa-trash";
+    var updateIcon = document.createElement("i");
+    updateIcon.className = "fas fa-edit";
+
+    deleteTd.append(updateIcon, deleteBtn);
 
     deleteBtn.addEventListener("click", function () {
       deleteGrade(data.id);
+    });
+
+    updateIcon.addEventListener('click', function() {
+      var addBtn = document.querySelector('#addBtn')
+      var updateBtn = document.querySelector('#updateBtn')
+      addBtn.classList.add('d-none')
+      updateBtn.classList.remove('d-none')
+
+      formElement.name.value = data.name;
+      formElement.course.value = data.course;
+      formElement.grade.value = data.grade;
+
+      updateBtn.addEventListener('click', function() {
+        updateGrade(
+          data.id,
+          formElement.name.value,
+          formElement.course.value,
+          formElement.grade.value
+        );
+        addBtn.classList.remove('d-none');
+        updateBtn.classList.add('d-none');
+        formElement.name.value = "";
+        formElement.course.value = "";
+        formElement.grade.value = "";
+
+      })
+
+
+
     });
 
     tRow.append(name, course, grade, deleteTd);

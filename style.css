@@ -10,3 +10,13 @@ header {
 .input-group {
   margin-bottom: 10px;
 }
+
+
+.fa-trash {
+  color: red;
+}
+
+.fa-edit {
+  color: rgb(23,162,184);
+  margin-right: 1rem;
+}

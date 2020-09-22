@@ -8,10 +8,14 @@ class App {
     this.createGrade = this.createGrade.bind(this);
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
-    this.getGrades = this.getGrades.bind(this)
-    this.deleteGrade = this.deleteGrade.bind(this)
-    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this)
-    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this)
+    this.getGrades = this.getGrades.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this);
+    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
+    this.updateGrade = this.updateGrade.bind(this)
+    this.handleUpdateGradeSuccess = this.handleUpdateGradeSuccess.bind(this)
+    this.handleUpdateGradeError = this.handleUpdateGradeError.bind(this)
+
   }
 
   handleGetGradesSuccess(grades) {
@@ -44,6 +48,7 @@ class App {
     this.getGrades();
     this.gradeForm.onSubmit(this.createGrade);
     this.gradeTable.onDeleteClick(this.deleteGrade);
+    this.gradeTable.onUpdateClick(this.updateGrade);
   }
 
   createGrade(name, course, grade) {
@@ -72,7 +77,6 @@ class App {
   }
 
   deleteGrade(id) {
-
     $.ajax({
       url: "https://sgt.lfzprototypes.com/api/grades/" + id,
       method: "DELETE",
@@ -84,8 +88,6 @@ class App {
 
       error: this.handleDeleteGradeError,
     });
-
-
   }
 
   handleDeleteGradeError(error) {
@@ -93,6 +95,34 @@ class App {
   }
 
   handleDeleteGradeSuccess() {
+    this.getGrades();
+  }
+
+  updateGrade(id, name, course, grade) {
+    $.ajax({
+      url: "https://sgt.lfzprototypes.com/api/grades/" + id,
+      method: "PATCH",
+      headers: {
+        "X-Access-Token": "IOFCrHGC",
+      },
+
+      data: {
+        name: name,
+        course: course,
+        grade: grade,
+      },
+
+      success: this.handleUpdateGradeSuccess,
+
+      error: this.handleUpdateGradeError,
+    });
+  }
+
+  handleUpdateGradeError(error) {
+    console.error(error);
+  }
+
+  handleUpdateGradeSuccess() {
     this.getGrades();
   }
 }
