@@ -33,7 +33,7 @@ class GradeTable {
     var deleteTd = document.createElement("td");
     var deleteBtn = document.createElement("button");
     deleteBtn.textContent = "DELETE";
-    // deleteBtn.setAttribute("id", data.id);
+    deleteBtn.className = "btn btn-danger btn-sm";
     deleteTd.append(deleteBtn);
 
     deleteBtn.addEventListener("click", function () {
